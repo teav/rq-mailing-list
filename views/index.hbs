@@ -1,0 +1,128 @@
+<div class="container">
+  <section id="title-container">
+    <div class="row">
+
+      <div class="title">
+        <img src="images/rq-logo-2-full.png" class="center-block title-logo" alt="RemoteQuote: Click, Pics, Fix"/>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about-container">
+    <div class="row">
+      <div class="col-md-10">
+
+        <article class="about">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac felis massa. Sed ut euismod risus. Nunc orci ipsum, dignissim eget iaculis at, pulvinar at felis. Vestibulum at leo odio. In ut odio felis. Morbi a euismod velit. Donec eleifend mauris sit amet quam maximus, et facilisis nunc vehicula.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="mailing-list-container">
+    <div class="row text-center">
+      <div class="col-md-10">
+        <div class="mailing-list-header">
+          <h2>Join our mailing list</h2>
+          <p>Select a customer type and enter your email address</p>
+        </div>
+
+        <div class="mailing-list-form">
+          <form method="post">
+            <div class="form-group">
+              <label for="cus-type-1" class="radio-inline">
+                <input type="radio" id="cus-type-1" name="customerType" value="provider" class="form-input" data-help-text="A provider provides a service to a client."/>
+                Provider
+              </label>
+
+              <label for="cus-type-2" class="radio-inline">
+                <input type="radio" id="cus-type-2" name="customerType" value="client" class="form-input" data-help-text="A client receives a service from a provider."/>
+                Client
+              </label>
+
+              <span class="well well-sm help-text"></span>
+            </div>
+
+            <div class="form-group">
+              <input type="email" name="email"/>
+
+              <button class="btn btn-primary">Join</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br/>
+
+  <section id="facts-container">
+    <div class="row">
+      <div class="col-md-4 fact">
+        <div class="well well-sm">
+
+          <article class="fact">
+            <h3 class="text-center">Fact 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac felis massa. Sed ut euismod risus. Nunc orci ipsum, dignissim eget iaculis at, pulvinar at felis. Vestibulum at leo odio. In ut odio felis. Morbi a euismod velit. Donec eleifend mauris sit amet quam maximus, et facilisis nunc vehicula.</p>
+          </article>
+
+        </div>
+      </div>
+      <div class="col-md-4 fact">
+        <div class="well well-sm">
+
+          <article class="fact">
+            <h3 class="text-center">Fact 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac felis massa. Sed ut euismod risus. Nunc orci ipsum, dignissim eget iaculis at, pulvinar at felis. Vestibulum at leo odio. In ut odio felis. Morbi a euismod velit. Donec eleifend mauris sit amet quam maximus, et facilisis nunc vehicula.</p>
+          </article>
+
+        </div>
+      </div>
+      <div class="col-md-4 fact">
+        <div class="well well-sm">
+
+          <article class="fact">
+            <h3 class="text-center">Fact 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac felis massa. Sed ut euismod risus. Nunc orci ipsum, dignissim eget iaculis at, pulvinar at felis. Vestibulum at leo odio. In ut odio felis. Morbi a euismod velit. Donec eleifend mauris sit amet quam maximus, et facilisis nunc vehicula.</p>
+          </article>
+
+        </div>
+      </div>
+  </section>
+  </div>
+
+  <br/>
+
+  <div class="row">
+    <section id="footer">
+      Copyright Squatch LLC 2017
+    </section>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var customerTypes =  $('[name=customerType]');
+    var helpText = $('.help-text');
+
+    updateHelpText();
+
+    customerTypes.on('change', updateHelpText);
+
+    function updateHelpText() {
+      helpText.text(getSelectedType().data('helpText'));
+    }
+
+    function getSelectedType() {
+      var selected = customerTypes.filter(':checked');
+      if (selected.length === 0) {
+        return customerTypes.first().prop('checked', true);
+      }
+      return selected;
+    }
+  });
+</script>
